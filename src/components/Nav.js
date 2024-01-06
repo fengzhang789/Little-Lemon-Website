@@ -5,22 +5,22 @@ const Nav = () => {
         <nav>
             <ul>
                 <li>
-                    <a>Home</a>
+                    <a href='/'>Home</a>
                 </li>
                 <li>
-                    <a>About</a>
+                    <a href='/about'>About</a>
                 </li>
                 <li>
-                    <a>Menu</a>
+                    <a href='/menu'>Menu</a>
                 </li>
                 <li>
-                    <a>Reservations</a>
+                    <a href='/reservations'>Reservations</a>
                 </li>
                 <li>
-                    <a>Order Online</a>
+                    <a href='/order-online'>Order Online</a>
                 </li>
                 <li>
-                    <a>Login</a>
+                    <a href='/login'>Login</a>
                 </li>
             </ul>
         </nav>
