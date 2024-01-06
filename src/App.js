@@ -1,10 +1,18 @@
-import './App.css';
+import React from 'react';
+import Header from './components/Header';
+import Nav from './components/Nav';
+import Main from './components/Main';
+import Footer from './components/footer';
+import './assets/stylesheets/App.css';
 
 function App() {
   return (
-    <div className="App">
-      Heading
-    </div>
+    <React.Fragment>
+      <Header />
+      <Nav />
+      <Main />
+      <Footer />
+    </React.Fragment>
   );
 }
 
