@@ -1,5 +1,6 @@
 import React from 'react'
 import food from '../assets/img/call to action food.jpg'
+import { Link } from 'react-router-dom'
 
 const CallToAction = () => {
     return (
@@ -8,7 +9,7 @@ const CallToAction = () => {
                 <h1>Little Lemon</h1>
                 <h2>Chicago</h2>
                 <p>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
-                <button>Reserve a Table</button>
+                <button><Link to="/booking">Reserve a Table</Link></button>
             </div>
 
             <div className='right-content'>
