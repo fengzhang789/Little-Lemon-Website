@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Markazi+Text:wght@400;500;700&display=swap');
 
 *, *::before, *::after{
   margin: 0;
@@ -21,10 +22,10 @@ h2 {
 p {
   font-size: 16px;
   line-height: 1.5;
+  font-family: 'Karla', sans-serif;
 }
 
 /* NAVBAR */
-
 .navbar {
   display: flex;
   flex-direction: row;
@@ -62,4 +63,71 @@ li {
 a {
   font-size: 20px;
   color: black;
+}
+
+/* HOMEPAGE STYLES */
+.call-to-action {
+  display: flex;
+  flex-direction: row;
+  padding: 0 25% 2% 25%;
+  background-color: #495E57;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.left-content {
+  flex-basis: 40%;
+  height: auto;
+}
+
+.left-content h1 {
+  color: #F4CE14;
+  margin-top: 5px;
+}
+
+.left-content h2 {
+  color: white;
+  font-weight: 400;
+  position: relative;
+  bottom: 15px;
+}
+
+.left-content p {
+  color: white;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.left-content button {
+  border-radius: 16px;
+  width: 160px;
+  height: 40px;
+  border: none;
+  font-weight: 700;
+  font-size: 18px;
+  background-color: #F4CE14;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.right-content {
+  flex-basis: 35%;
+  height: 50%;
+}
+
+.right-content img {
+  aspect-ratio: 11/12;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  height: 80%;
+  animation: float 7s infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(10%);
+  } 50% {
+    transform: translateY(30%);
+  }
 }
