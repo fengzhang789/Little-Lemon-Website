@@ -78,14 +78,23 @@ a {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   grid-template-areas:
-    ". . text text text . . img img img . .";
+    ". . item item item item item item item item . .";
   padding: 0 50px;
   background-color: #495E57;
 }
 
-.left-content {
-  grid-area: text
+.action-items {
+  grid-area: item;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.left-content {
+  flex-basis: 40%;
+}
+
 
 .left-content h1 {
   color: #F4CE14;
@@ -118,13 +127,13 @@ a {
 }
 
 .right-content {
-  grid-area: img;
   max-height: 35vh;
+  width: 28%
 }
 
 .right-content img {
   max-width: 100%;
-  height: 35vh;
+  height: 100%;
   object-fit: cover;
   border-radius: 16px;
   aspect-ratio: 11/12;
@@ -261,7 +270,6 @@ a {
 
 /* BOOKING PAGE */
 .chef {
-  grid-area: img;
   max-height: 35vh;
 }
 
@@ -272,4 +280,158 @@ a {
   border-radius: 16px;
   aspect-ratio: 11/12;
   animation: float 7s infinite;
+}
+
+.form-wrapper {
+  background-color: #FBDABB;
+  padding: 8% 30%;
+}
+
+.form {
+  background-color: white;
+  padding: 8% 10%;
+  border-radius: 16px;
+}
+
+.form > label {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* Focus Styles */
+input:focus, select:focus {
+  border-color: #007bff; /* Change to your desired focus color */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Change to your desired focus shadow */
+  outline: none;
+}
+
+/* Error Styles */
+input.error, select:focus {
+  border-color: #dc3545; /* Change to your desired error color */
+}
+
+form > button {
+  width: 100%;
+  padding: 3% 0;
+  background-color: #F4CE14;
+  color: black;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+form > button:disabled {
+  background-color: rgba(211, 211, 211, 0.7);
+}
+
+button:hover {
+  transform: scale(0.99)
+}
+
+/* BOOKING CONFIRMATION PAGE */
+.booking-confirmation {
+  display: flex;
+  justify-content: center;
+  margin-top: 20vh;
+}
+
+.booking-confirmation > * {
+  color: green;
+}
+
+
+
+/* RESPONSIVE SCREEN SIZING */
+@media screen and (max-width: 1200px) {
+  .call-to-action {
+    display: grid;
+    height: auto;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-areas:
+      ". item item item item item item . ";
+    padding: 0
+  }
+
+  .left-content {
+    flex-basis: 50%;
+  }
+
+  .right-content {
+    max-height: 25vh;
+    width: 40%;
+  }
+
+  .specials {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    padding: 0 0px;
+    grid-template-rows: auto;
+    grid-template-areas:
+      " .  top top top top top top  ."
+      " . bottom bottom bottom bottom bottom bottom .";
+      margin: 15vh 0 0 0;
+  }
+
+  .chef {
+    width: 40%;
+    height: 25vh;
+  }
+
+  .chef > img {
+    height:90%;
+  }
+
+  .form-wrapper {
+    padding: 8% 15%;
+  }
+}
+
+
+@media screen and (max-width: 992px) {
+  .left-content {
+    margin-bottom: 2vh;
+  }
+
+  .navbar {
+    justify-content: space-between;
+    padding: 1.5% 4%;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3)
+  }
+  
+  nav {
+    flex-basis: 80%;
+    justify-content: flex-end;
+  }
+  
+  header {
+    flex-basis: 20%;
+  }
+  
+}
+
+@media screen and (max-width: 768px) {
+  .left-content {
+    flex-basis: 60%;
+  }
+
+  .specials {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    padding: 0 0px;
+    grid-template-rows: auto;
+    grid-template-areas:
+      " .  top top top top  ."
+      " . bottom bottom bottom bottom .";
+      margin: 15vh 0 0 0;
+  }
 }

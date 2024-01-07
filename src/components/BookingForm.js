@@ -12,10 +12,7 @@ const BookingForm = (props) => {
     const [displayedTime, setDisplayedTime] = useState([])
     
     useEffect(() => {
-        // This useEffect ensures that the component is re-rendered when
-        // props.availableTimes is resolved.
         props.availableTimes && props.availableTimes.then(times => {
-            // Handle the resolved times, e.g., set them in the component state
             setDisplayedTime(times)
         });
     }, [props.availableTimes]);
@@ -41,7 +38,7 @@ const BookingForm = (props) => {
 
     return (
         <div className='form-wrapper'>
-            <form onSubmit={formSubmission}>
+            <form className='form' onSubmit={formSubmission}>
                 <h2>Booking Details</h2>
 
                 <label htmlFor="date"> Date</label><br />
@@ -78,7 +75,7 @@ const BookingForm = (props) => {
                 <input type='email' id="email" onChange={e => setEmail(e.target.value)}></input><br />
 
 
-                <button type='submit' disabled={formNotValid()}>Submit</button>
+                <button aria-label="On Click" type='submit' disabled={formNotValid()}>Submit</button>
             </form>
         </div>
     )
