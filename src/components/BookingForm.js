@@ -1,19 +1,42 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Option from './Option';
 
 const BookingForm = (props) => {
     const [date, setDate] = useState(null);
     const [time, setTime] = useState(null);
     const [guests, setGuests] = useState(0);
-    const [occation, setOccasion] = useState('Birthday')
+    const [occasion, setOccasion] = useState('Birthday')
     const [fname, setFname] = useState("John")
     const [lname, setLname] = useState("Doe")
     const [email, setEmail] = useState('')
+    const [displayedTime, setDisplayedTime] = useState([])
     
+    useEffect(() => {
+        // This useEffect ensures that the component is re-rendered when
+        // props.availableTimes is resolved.
+        props.availableTimes && props.availableTimes.then(times => {
+            // Handle the resolved times, e.g., set them in the component state
+            setDisplayedTime(times)
+        });
+    }, [props.availableTimes]);
+
+    const formSubmission = (e) => {
+        e.preventDefault();
+
+        props.submitForm({
+            date: date,
+            time: time,
+            guests: guests,
+            occasion: occasion,
+            fname: fname,
+            lname: lname,
+            email: email,
+        })
+    }
 
     return (
         <div className='form-wrapper'>
-            <form>
+            <form onSubmit={formSubmission}>
                 <h2>Booking Details</h2>
 
                 <label htmlFor="date"> Date</label><br />
@@ -23,7 +46,7 @@ const BookingForm = (props) => {
 
                 <label htmlFor='time'>Time</label><br />
                 <select id="time" onChange={e => setTime(e.target.value)}>
-                    {props.availableTimes && props.availableTimes.map((time) => {
+                    {displayedTime && displayedTime.map((time) => {
                         return <Option key={time} value={time}/>
                     })}
                 </select><br />
@@ -48,6 +71,9 @@ const BookingForm = (props) => {
 
                 <label htmlFor='email'>Email</label><br />
                 <input type='email' id="email" onChange={e => setEmail(e.target.value)}></input><br />
+
+
+                <button type='submit'>Submit</button>
             </form>
         </div>
     )

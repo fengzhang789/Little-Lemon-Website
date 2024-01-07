@@ -9,13 +9,14 @@ test('Renders the BookingForm heading', () => {
 })
 
 
-test('Tests the initialize times function', () => {
-  const initialTimes = initializeTimes();
-  expect(initialTimes).toEqual(["17:00"]);
+test('Tests the initialize times function', async () => {
+  const initialTimes = await initializeTimes();
+  expect(initialTimes).toEqual([]);
 })
 
 
-test('Tests the update times function', () => {
-  const updatedTimes = updateTimes('', '');
-  expect(updatedTimes).toEqual(['17:00', '18:00', '19:00']);
-})
+test('Tests the update times function', async () => {
+  const date = "2024-01-10";
+  const updatedTimes = await updateTimes('', date);
+  expect(updatedTimes).toEqual(['10:00 AM', '12:00 PM', '2:00 PM']);
+});
