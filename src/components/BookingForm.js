@@ -4,10 +4,10 @@ import Option from './Option';
 const BookingForm = (props) => {
     const [date, setDate] = useState(null);
     const [time, setTime] = useState(null);
-    const [guests, setGuests] = useState(0);
+    const [guests, setGuests] = useState(1);
     const [occasion, setOccasion] = useState('Birthday')
-    const [fname, setFname] = useState("John")
-    const [lname, setLname] = useState("Doe")
+    const [fname, setFname] = useState("")
+    const [lname, setLname] = useState("")
     const [email, setEmail] = useState('')
     const [displayedTime, setDisplayedTime] = useState([])
     
@@ -22,6 +22,7 @@ const BookingForm = (props) => {
 
     const formSubmission = (e) => {
         e.preventDefault();
+        console.log(formNotValid())
 
         props.submitForm({
             date: date,
@@ -32,6 +33,10 @@ const BookingForm = (props) => {
             lname: lname,
             email: email,
         })
+    }
+
+    const formNotValid = () => {
+        return date === null || time === null || fname === "" || lname === "" || email === ""
     }
 
     return (
@@ -73,7 +78,7 @@ const BookingForm = (props) => {
                 <input type='email' id="email" onChange={e => setEmail(e.target.value)}></input><br />
 
 
-                <button type='submit'>Submit</button>
+                <button type='submit' disabled={formNotValid()}>Submit</button>
             </form>
         </div>
     )
